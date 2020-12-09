@@ -1,0 +1,102 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+
+$(document).ready(function(){
+ $('#signin').addClass("active");
+
+});
+</script>
+<!-- signin page goes here-->
+
+<link rel="stylesheet" href=  "{% static 'assets/css/Carousel-Hero.css' %}">
+<link rel="stylesheet" href=  "{% static 'assets/css/Responsive-Form-1.css' %}">
+<link rel="stylesheet" href=  "{% static 'assets/css/Responsive-Form.css' %}">
+<link rel="stylesheet" href=  "{% static 'assets/css/signup.css' %}">
+
+    <div class="row" style="position: absolute;width: 100%;top: 115px;left: 16px;">
+        <div class="col-xl-6"><img src="{% static 'assets/img/undraw_authentication_fsn5.svg' %}" style="width: 700px;height: 500px;"></div><div class="col-xl-6">
+	<div class="row" style="">
+		<div class="col">
+			<div class="container offset-lg-5" s>
+				<h1 class="display-5 text-info" style="margin-left: 45px;">Login</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div>
+			<form method="POST" action="{% url 'signin' %}">
+			{% csrf_token %}
+				<div class="form-group">
+					<div id="formdiv" style="width: 87%;">
+
+
+
+
+
+
+
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:64px;">
+
+
+							<div class="col-md-10 offset-md-1 input-icons">
+
+								<i class="fa fa-envelope icon" aria-hidden="true"></i>
+								<input type="email" class="form-control input-field" style="margin-left:0px;font-family:Roboto, sans-serif;" name="email" placeholder="Email" /> 								
+
+							</div>
+						</div>
+
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+					
+							
+							<div class="col-md-10 offset-md-1 input-icons">
+
+								<i class="fa fa-lock icon" aria-hidden="true"></i>
+								<input type="password" class="form-control input-field" style="margin-left:0px;font-family:Roboto, sans-serif;" name="password" placeholder="Password" /></div>
+						</div>
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+							<div class="offset-md-4">
+								
+								{% if error_msg %}
+
+										<div class="alert alert-danger alert-dismissible" width="90%">
+										<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+										{{ error_msg }}
+										</div>
+								{% endif %}
+							</div>
+					
+						</div>
+
+
+
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+							<div class="offset-md-5">
+								
+							<button class="btn btn-info btn-lg" style="margin-left:16px;" type="submit">Submit </button></div>
+						</div>
+					
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div></div>
+
+{% endblock content %}

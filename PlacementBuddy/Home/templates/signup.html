@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+
+$(document).ready(function(){
+ $('#signup').addClass("active");
+
+});
+</script>
+
+
+<link rel="stylesheet" href=  "{% static 'assets/css/Carousel-Hero.css' %}">
+<link rel="stylesheet" href=  "{% static 'assets/css/Responsive-Form-1.css' %}">
+<link rel="stylesheet" href=  "{% static 'assets/css/Responsive-Form.css' %}">
+<link rel="stylesheet" href=  "{% static 'assets/css/signup.css' %}">
+
+    <div class="row" style="position: absolute;width: 100%;top: 115px;left: 16px;">
+        <div class="col-xl-6"><img src="{% static 'assets/img/undraw_Login_re_4vu2.svg' %}" style="width: 700px;height: 700px;"></div><div class="col-xl-6">
+	<div class="row" style="">
+		<div class="col">
+			<div class="container offset-lg-5" s>
+				<h1 class="display-5 text-info" style="margin-left: 45px;">Sign Up</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div>
+
+
+
+
+			<form method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="form-group">
+					<div id="formdiv" style="width: 87%;">
+
+
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;padding-bottom:100px;">
+							<div class="row offset-md-5">
+								<div class="small-12 medium-2 large-2 columns">
+									<div class="circle">
+										<!-- User Profile Image -->
+										<img class="profile-pic" src="https://cdn3.iconfinder.com/data/icons/mixed-communication-and-ui-pack-1/48/general_pack_NEW_glyph_profile-512.png">
+
+										<!-- Default Image -->
+										<!-- <i class="fa fa-user fa-5x"></i> -->
+									</div>
+									<div class="p-image">
+										<i class="fa fa-camera upload-button"></i>
+										<input class="file-upload" name="profile_pic" type="file" accept="image/*"/>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+							<!-- <div class="col-md-8 offset-md-1">
+								<p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Name </strong></p>
+							</div> -->
+
+							<div class="col-md-10 offset-md-1 input-icons">
+
+								<i class="fa fa-user icon" aria-hidden="true"></i>
+								<input type="text" class="form-control input-field" style="margin-left:0px;font-family:Roboto, sans-serif;" name="name" placeholder="Name" /> 								
+
+							</div>
+						</div>
+
+
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+
+							<div class="col-md-10 offset-md-1 input-icons">
+
+								<i class="fa fa-envelope icon" aria-hidden="true"></i>
+								<input type="email" class="form-control input-field" style="margin-left:0px;font-family:Roboto, sans-serif;" name="email" placeholder="Email" /> 								
+
+							</div>
+						</div>
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+
+							<div class="col-md-10 offset-md-1 input-icons">
+
+								<i class="fa fa-phone icon" aria-hidden="true"></i>
+								<input type="text" class="form-control input-field" style="margin-left:0px;font-family:Roboto, sans-serif;" name="phonenumber" placeholder="Phonenumber" /> 								
+
+							</div>
+						</div>
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+					
+							
+							<div class="col-md-10 offset-md-1 input-icons">
+
+								<i class="fa fa-lock icon" aria-hidden="true"></i>
+								<input type="password" class="form-control input-field" style="margin-left:0px;font-family:Roboto, sans-serif;" name="password" placeholder="Password" /></div>
+						</div>
+
+
+
+
+
+
+
+						<div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+							<div class="offset-md-5">
+
+								<button class="btn btn-info btn-lg" style="margin-left:16px;" type="submit">Submit </button></div>
+						</div>
+					
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div></div>
+<script>
+$(document).ready(function() {
+
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+});
+</script>
+<!-- signup page goes here-->
+{% endblock content %}

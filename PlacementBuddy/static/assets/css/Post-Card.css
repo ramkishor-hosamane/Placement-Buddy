@@ -1,0 +1,25 @@
+.card-profile-photo {
+  width: 60px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #1c81cb;
+}
+
+.card-top {
+  margin-top: 20px;
+}
+
+.card-top-text {
+  font-family: arial;
+  font-size: 35px;
+  color: #26282d;
+}
+
+.card-top-text-time {
+  float: right;
+  font-family: Molengo;
+  font-size: 13px;
+  font-weight: 300;
+  color: #26282d;
+}
+
