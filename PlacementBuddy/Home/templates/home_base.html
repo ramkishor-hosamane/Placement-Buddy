@@ -31,57 +31,61 @@
     
     <title>PlacementBuddy</title>
    
+
+
+    <style>
+    div.wrapper
+    {
+        margin-top:115px;
+    }
+    </style>
+
+
   </head>
   <body style="url({% static 'background.jpg' %});">
 
-  {% block content %}
-<div class="row">
-        <div class="col" style="position: relative;">
-                <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><img class="rounded-circle" src="assets/img/undraw_updated_resume_u4fy.svg" width="200"
-            <nav class="navbar navbar-dark navbar-expand-md text-left" style="background: #009877;position: fixed;width: 100%;top: 0;font-size: 22px;">
-                        height="100">
-                    <div class="row" style="position: absolute;top: 115px;left: 265px;width: 100%;">
-                        <div class="col">
-                            <div class="card"></div>
-                        </div>
-                    </div>
-    <script src="assets/js/Sidebar-Menu.js"></script>
-                </div>
-        </div>
-            </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-                    <div class="collapse navbar-collapse" id="navcol-1">
-                            <li class="nav-item"><a class="nav-link active" href="#" style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Home</a></li>
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item"></li>
-                            <li class="nav-item"><a class="nav-link" href="#" style="text-shadow: 0px 0px;">News Feed</a></li>
-                            <li class="nav-item"></li>
-                            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link nav-link" data-toggle="dropdown" aria-expanded="false" href="#">User</a>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                        </ul>
-                            </li>
-                    </div>
-                    </ul>
-                        <li> <a href="#">&nbsp; &nbsp; Something</a></li>
-                        <li> <a href="#">&nbsp; &nbsp; Problem</a></li>
-                        <li> <a href="#">&nbsp; &nbsp; Interview</a></li>
-                    <ul class="sidebar-nav">
-                        <li class="sidebar-brand"> <a href="#">Post Review</a></li>
-                <div id="sidebar-wrapper">
-        <div class="col" style="position: relative;top: 115px;">
-            <div id="wrapper" style="color: white;opacity: 0.92;position: fixed;left: 0;">
+
+
+    <!-- Top Navigation bar-->
     <div class="row">
+        <div class="col" >
+            <nav class="navbar fixed-top navbar-dark navbar-expand-md text-left" style="background: #009877;width: 100%;top: 0;font-size: 22px;">
+                <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><img class="rounded-circle" src="{% static 'assets/img/undraw_updated_resume_u4fy.svg' %}" width="200"
+                        height="100">
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" id="home" href="{% url 'home' %}" style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" id="signup" href="{% url 'signup' %}" style="text-shadow: 0px 0px;">Signup</a></li>
+                            <li class="nav-item"><a class="nav-link" id="signin" href="{% url 'signin' %}"  style="text-shadow: 0px 0px;">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
-            </nav>
-                </div>
-{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% block content %}
+
+  {% endblock content %}
+
+
 
  <!-- Footer -->    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
-<div class="footer-dark" style="position: absolute;width: 100%;top: 100%;">
+<div class="footer-dark">
     <footer>
         <div class="container">
             <div class="row">
@@ -115,25 +119,6 @@
 
 
 
-
-    <!-- Top Navigation bar-->
-    <div class="row">
-        <div class="col" style="position: relative;">
-            <nav class="navbar navbar-dark navbar-expand-md text-left" style="background: #009877;position: fixed;width: 100%;top: 0;font-size: 22px;">
-                <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><img class="rounded-circle" src="{% static 'assets/img/undraw_updated_resume_u4fy.svg' %}" width="200"
-                        height="100">
-                    <div class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" id="home" href="{% url 'home' %}" style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" id="signup" href="{% url 'signup' %}" style="text-shadow: 0px 0px;">Signup</a></li>
-                            <li class="nav-item"><a class="nav-link" id="signin" href="{% url 'signin' %}"  style="text-shadow: 0px 0px;">Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        
-    </div>
 
 
 
