@@ -56,6 +56,7 @@ class Signin(View):
         if request.path == "/logout":
             request.session['logined_user'] = None
             print("Loging out")
+            return redirect('signin')
         return render(request, 'signin.html')
     
     def post(self,request):
@@ -68,8 +69,7 @@ class Signin(View):
         if len(user_query_set) > 0 :
                  print("Logined successfully")
                  request.session['logined_user'] = user_query_set[0].name
-                 #return redirect('newsfeed/'+user.name)                 
-                 return redirect('signin')
+                 return redirect('newsfeed')                 
 
         print("Login Failed")
         error_msg= "Wrong email or password"
