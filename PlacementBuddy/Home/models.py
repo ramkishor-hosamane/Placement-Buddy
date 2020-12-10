@@ -8,6 +8,5 @@ class User(models.Model):
     phone_number= models.CharField(max_length=10)
     profile_pic = models.ImageField(upload_to = "Images/Profile_Pictures/") 
 
-
     def __str__(self):
         return self.name
