@@ -34,6 +34,8 @@
     <link rel="stylesheet" href=  "{% static 'assets/css/Sidebar-Menu.css' %}">
     <link rel="stylesheet" href=  "{% static 'assets/css/styles.css' %}">
 
+    <link rel="stylesheet" href="{% static 'assets/css/Responsive-Form-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Responsive-Form.css' %}">
 
 
 
@@ -57,11 +59,9 @@
                         height="100">
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link active" href="#" style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#" style="text-shadow: 0px 0px;">News Feed</a></li>
-                            <li class="nav-item"></li>
-                            <li class="nav-item"></li>
-                            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link nav-link" data-toggle="dropdown" aria-expanded="false" href="#">{{ user_name }}</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}" style="filter: blur(0px) grayscale(0%) hue-rotate(0deg) invert(0%) sepia(0%);text-shadow: 0px 0px;">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'newsfeed' %}" style="text-shadow: 0px 0px;">News Feed</a></li>
+                            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">{{ user_name }}</a>
                                 <div class="dropdown-menu"><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></div>
                             </li>
                         </ul>
@@ -72,13 +72,35 @@
     </div>
 
 
+    <!-- Side menu bar -->
+    <div class="row">
+        <div class="col" style="position: absolute;top: 115px;">
+            <div id="wrapper" style="color: white;opacity: 0.92;position: fixed;left: 0;">
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-brand"> <a href="#">Posts And Questions</a></li>
+                        <li> <a href="#">&nbsp; &nbsp; All Posts</a></li>
+                        <li> <a href="#">&nbsp; &nbsp; Starred Posts</a></li>
+
+                        <li> <a href="#">&nbsp; &nbsp; All Questions</a></li>
+                        <li> <a href="#">&nbsp; &nbsp; Starred Questionsts</a></li>
+                        <br>
+                        <br>
+
+                        <li class="sidebar-brand"> <a href="#">Post Review</a></li>
+                        <li> <a href="{% url '/post_review' %}">&nbsp; &nbsp; Interview</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
     {% block newsfeed %}
     {% endblock newsfeed %}
         
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

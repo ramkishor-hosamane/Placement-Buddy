@@ -1,0 +1,197 @@
+{% extends "newsfeed_base.html" %}
+{% load static %}
+
+{% block newsfeed %}
+<style>
+    li input.input-field{
+        margin-bottom: 30px;
+    }
+</style>
+<div class="row" style="position: absolute;width:70%;margin-left:225px;top: 115px;">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <div class="col-lg">
+        <div class="row" style="margin-left: 50%">
+            <div class="col">
+                <div class="container">
+                    <h1 class="display-5" style="color:black">Post Review</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <form>
+                    <div class="form-group">
+                        <div id="formdiv" style="width: 100%;">
+
+
+                            <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+                                <!-- <div class="col-md-8 offset-md-1">
+								<p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Name </strong></p>
+							</div> -->
+
+                                <div class="col-md-10 offset-md-1 input-icons">
+
+                                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+
+                                    <input type="text" class="form-control input-field"
+                                        style="margin-left:0px;font-family:Roboto, sans-serif;" name="job_title"
+                                        placeholder="Job Title" />
+
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+
+                                <div class="col-md-10 offset-md-1 input-icons">
+
+                                    <i class="fa fa-building " aria-hidden="true"></i>
+
+                                    <input type="email" class="form-control input-field"
+                                        style="margin-left:0px;font-family:Roboto, sans-serif;" name="company"
+                                        placeholder="Company" />
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+
+                                <div class="col-md-10 offset-md-1 input-icons">
+
+                                    <i class="fa fa-level-up" aria-hidden="true"></i>
+                                    <select class="form-control input-field"
+                                        style="margin-left:0px;font-family:Roboto, sans-serif; height: 40px;"
+                                        name="phonenumber" placeholder="Phonenumber">
+                                        <option default> Difficulty </option>
+                                        <option value="very easy"> Very Easy</option>
+                                        <option value="easy"> Easy</option>
+                                        <option value="Medium"> Medium</option>
+                                        <option value="Hard"> Hard</option>
+                                        <option value="Super Hard"> Super Hard </option>
+                                    </select>
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+
+                                <div class="col-md-10 offset-md-1 input-icons">
+                                    <textarea cols="40" rows="15" class="form-control input-field"
+                                        style="margin-left:0px;font-family:Roboto, sans-serif;" name="experience"
+                                        placeholder="Experience"></textarea>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+                            <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+                                <div class="col-md-10 offset-md-1 input-icons">
+                                    <div class="col-6" style="display: inline;">
+
+
+                                        <div class="container">
+                                            <div class="row">
+
+                                                <div class="col-10">
+
+                                                    <ul id="questions">
+                                                        <li>
+                                                            <input type="text" class="form-control input-field"
+                                                                style="margin-right:10px;font-family:Roboto, sans-serif;"
+                                                                name="question-1" placeholder="question" />
+                                                        </li>
+
+
+                                                    </ul>
+
+
+                                                </div>
+                                                <div class="col-2">
+                                                    <input type="button" class="btn btn-info btn-md-10"
+                                                        id="add_question" value="Add Question"
+                                                        class="form-control input-field"
+                                                        style="margin-right:10px;font-family:Roboto, sans-serif;">
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                                <div class="offset-md-5">
+
+                                    <button class="btn btn-info btn-lg" style="margin-left:16px;" type="submit">Submit
+                                    </button>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var count = 1;
+            $('#add_question').click(function () {
+
+                if (count == 5) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No more questions mortal!!!!',
+                        text: 'Pay 300$ to add more questions\n courtesy @EA!',
+                        footer: '<a href="https://www.ea.com/">Why do I have this issue?</a>'
+                    });
+                    return;
+                }
+
+                count += 1;
+                $('#questions').prepend('<li><input type="text" class="form-control input-field" style="margin-right:10px;font-family:Roboto, sans-serif;" name="question-'+count+'" placeholder="question" /></li>')
+
+            })
+
+
+        });
+
+    </script>
+{% endblock newsfeed %}

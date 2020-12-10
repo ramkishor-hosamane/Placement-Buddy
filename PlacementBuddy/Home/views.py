@@ -6,9 +6,13 @@ from .models import User
 
 #Routing for Home
 def home(request):
-
-    print("Logined user is ",request.session.get('logined_user'))
-    return render(request, 'home.html')
+    context = {}
+    all_users = User.objects.all()
+    
+    '''testing'''
+    request.session['logined_user'] = all_users[0].name #None
+    context['logined_user'] = request.session.get('logined_user')
+    return render(request, 'home.html',context=context)
 
 
 #Routing for Signup
