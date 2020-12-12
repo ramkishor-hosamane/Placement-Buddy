@@ -4,10 +4,9 @@ from django.db import models
 class User(models.Model):
     name = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
-    email = models.CharField(max_length=20)
+    email = models.CharField(max_length=30)
     phone_number= models.CharField(max_length=10)
-    profile_pic = models.ImageField(upload_to = "Images/Profile_Pictures/") 
-
+    profile_pic = models.ImageField(upload_to = "Profile_Pictures/") 
 
     def __str__(self):
         return self.name

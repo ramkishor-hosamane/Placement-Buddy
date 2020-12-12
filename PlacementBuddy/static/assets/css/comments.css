@@ -1,0 +1,35 @@
+.all-comments{
+
+}
+
+.comment-card{
+    border:2px solid gray;
+    padding: 5px 5px;
+    margin-bottom: 5px;
+    
+}
+.comment-user img{
+    width: 20px;
+    height: 20px;
+}
+.comment-user span{
+    font-weight: bold;    
+}
+.comment-user span:hover{
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.comment-user-comment{
+    margin-left: 25px;
+}
+.comment-user-comment span{
+    font-size: 15px;
+}
+
+.star-container span{
+    font-size: 1.5rem;
+}
+.star-container span:hover{
+    font-size: 1.6rem;
+}
