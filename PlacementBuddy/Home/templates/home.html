@@ -1,0 +1,98 @@
+{% extends 'home_base.html' %}
+{% block content %}
+
+<script>
+
+    $(document).ready(function () {
+        $('#home').addClass("active");
+
+    });
+</script>
+
+<!-- home page goes here-->
+
+<!-- carousel card home page-->
+<div class="row wrapper" style="">
+    <div class="col" style="width: 100%;">
+        <div class="carousel slide" data-ride="carousel" id="carousel-1" style="top: 1px;width: 100%;">
+            <div class="carousel-inner" style="width: 100%;">
+                <div class="carousel-item active">
+                    <div class="jumbotron hero-nature carousel-hero" style="width: 100%;">
+                        <h1 class="hero-title">Connecting Students with Companies</h1>
+                        <p class="hero-subtitle">It helps in connecting students with companies and learn about job roles on offer</p>
+                        <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="jumbotron hero-photography carousel-hero">
+                        <h1 class="hero-title">Feedback about the hiring process of different companies</h1>
+                        <p class="hero-subtitle">Get Feedback about how the hiring process will be done</p>
+                        <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="jumbotron hero-technology carousel-hero">
+                        <h1 class="hero-title">Reviews and Feedback</h1>
+                        <p class="hero-subtitle">Get Reviews & Feedback from alumnis about placements and companies</p>
+                        <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i
+                        class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a
+                    class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i
+                        class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2"></li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Features tab-->
+<div class="features-clean" style="width: 100%;">
+
+
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Feature</h2>
+            <p class="text-center"> What is the X- Factor of Placement Buddy ? </p>
+        </div>
+        <div class="row features">
+            <div class="col-sm-6 col-lg-4 item"><i class="fa fa-map-marker icon"></i>
+                <h3 class="name"> Good UI</h3>
+                <p class="description">The interface is designed to help the user reach his destination in not more than 2 clicks.The goal of the Placement Buddy is to provide a good user experience.</p>
+            </div>
+            <div class="col-sm-6 col-lg-4 item"><i class="fa fa-clock-o icon"></i>
+                <h3 class="name">Insights</h3>
+                <p class="description">Get insights about the hiring process of every company.</p>
+            </div>
+            <div class="col-sm-6 col-lg-4 item"><i class="fa fa-list-alt icon"></i>
+                <h3 class="name">Ask Alumni</h3>
+                <p class="description">Learn from alumnis about their interview experiences.</p>
+            </div>
+            <div class="col-sm-6 col-lg-4 item"><i class="fa fa-phone icon"></i>
+                <h3 class="name">Office Review</h3>
+                <p class="description">Learn about the office culture of different companies and their reviews based on previous year applicants.</p>
+            </div>
+            <div class="col-sm-6 col-lg-4 item"><i class="fa fa-plane icon"></i>
+                <h3 class="name">Updates</h3>
+                <p class="description">Get regular email updates about job interviews , placement opportunities , off-campus offers and more.</p>
+            </div>
+            <div class="col-sm-6 col-lg-4 item"><i class="fa fa-leaf icon"></i>
+                <h3 class="name">Secure</h3>
+                <p class="description">The data stored in the platform will be authenticated and stored in a safe and secure manner.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
