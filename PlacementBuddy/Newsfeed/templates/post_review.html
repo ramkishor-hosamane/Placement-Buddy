@@ -21,16 +21,13 @@
         </div>
         <div class="container">
             <div>
-                <form>
+                <form action="{% url '/post_review' %}" method="POST">
+                {% csrf_token %}
                     <div class="form-group">
                         <div id="formdiv" style="width: 100%;">
 
 
                             <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
-
-                                <!-- <div class="col-md-8 offset-md-1">
-								<p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Name </strong></p>
-							</div> -->
 
                                 <div class="col-md-10 offset-md-1 input-icons">
 
@@ -54,7 +51,7 @@
 
                                     <i class="fa fa-building " aria-hidden="true"></i>
 
-                                    <input type="email" class="form-control input-field"
+                                    <input type="text" class="form-control input-field"
                                         style="margin-left:0px;font-family:Roboto, sans-serif;" name="company"
                                         placeholder="Company" />
 
@@ -70,7 +67,7 @@
                                     <i class="fa fa-level-up" aria-hidden="true"></i>
                                     <select class="form-control input-field"
                                         style="margin-left:0px;font-family:Roboto, sans-serif; height: 40px;"
-                                        name="phonenumber" placeholder="Phonenumber">
+                                        name="difficulty" placeholder="Phonenumber">
                                         <option default> Difficulty </option>
                                         <option value="very easy"> Very Easy</option>
                                         <option value="easy"> Easy</option>
