@@ -1,0 +1,28 @@
+* {
+    color: black;
+}
+
+.checked {
+    color: orange;
+}
+
+
+.post_container {
+    width: 100%;
+    border: none;
+}
+
+.post_container .key {
+    font-weight: 600;
+    column-span: 3;
+}
+
+.post_container .value {
+    padding-left: 0px;
+}
+
+.table td {
+    border: none;
+    font-size: 18px;
+
+}

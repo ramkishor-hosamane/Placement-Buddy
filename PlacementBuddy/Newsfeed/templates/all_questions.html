@@ -1,0 +1,59 @@
+{% extends 'newsfeed_base.html' %}
+{% load static %}
+
+{% block newsfeed %}
+<div class="row" style="position: relative;width: 70%;margin-left:365px;top: 115px;">
+
+    <div class="col" style="padding: 25px 20px;">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-5">                <h3>{{ subject}}</h3>
+                    </div>
+                    <div class="col-7">'
+                        <div class="dropdown" style="float: right;">
+                            <a class="btn btn-block btn-info dropdown-toggle" style="width: 130%;color: white;font-size: 19px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Filter
+                            </a>
+                          
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{% url 'all_questions' %}">All Questions</a>
+
+                                <a class="dropdown-item" href="{% url 'algorithm_questions' %}">DS and Algorithms</a>
+                              <a class="dropdown-item" href="{% url 'programming_questions' %}">Programming</a>
+                              <a class="dropdown-item" href="{% url 'dbms_questions' %}">DBMS</a>
+                              <a class="dropdown-item" href="{% url 'cn_questions' %}">Computer Network</a>
+                              <a class="dropdown-item" href="{% url 'sw_questions' %}">Software Engineering</a>
+            
+                            </div>
+                          </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" style="width: 100%;">
+                    <thead class="" style="background-color:#13b987">
+                      <tr>
+                        <th class="scope" style="width: 16%;">SL No</th>
+                        <th class="scope">Question</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for question in questions %}
+                          
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ question }} ?</td>
+                      </tr>
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock newsfeed %}

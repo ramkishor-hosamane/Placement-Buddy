@@ -5,6 +5,23 @@
 <style>
     li input.input-field{
         margin-bottom: 30px;
+
+    }
+    .input-title{
+        font-size: 15px;
+        font-weight:700;
+        margin-bottom:20px;
+    }
+
+    .input-icons{
+        margin-bottom:20px;
+        
+    }
+    i{
+        display: none;
+    }
+    i.fa{
+        display: none;
     }
 </style>
 <div class="row" style="position: absolute;width:70%;margin-left:225px;top: 115px;">
@@ -30,12 +47,12 @@
                             <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
 
                                 <div class="col-md-10 offset-md-1 input-icons">
-
-                                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                    
+                                    <span class="input-title">Job Title</span>
 
                                     <input type="text" class="form-control input-field"
                                         style="margin-left:0px;font-family:Roboto, sans-serif;" name="job_title"
-                                        placeholder="Job Title" />
+                                        placeholder="Enter Role of the Job" />
 
                                 </div>
                             </div>
@@ -49,11 +66,11 @@
 
                                 <div class="col-md-10 offset-md-1 input-icons">
 
-                                    <i class="fa fa-building " aria-hidden="true"></i>
+                                    <span class="input-title">Company</span>
 
                                     <input type="text" class="form-control input-field"
                                         style="margin-left:0px;font-family:Roboto, sans-serif;" name="company"
-                                        placeholder="Company" />
+                                        placeholder="Enter name of the Employer" />
 
                                 </div>
                             </div>
@@ -63,11 +80,11 @@
 
 
                                 <div class="col-md-10 offset-md-1 input-icons">
+                                    <span class="input-title">Difficulty</span>
 
-                                    <i class="fa fa-level-up" aria-hidden="true"></i>
                                     <select class="form-control input-field"
                                         style="margin-left:0px;font-family:Roboto, sans-serif; height: 40px;"
-                                        name="difficulty" placeholder="Phonenumber">
+                                        name="difficulty" placeholder="Select difficulty">
                                         <option default> Difficulty </option>
                                         <option value="very easy"> Very Easy</option>
                                         <option value="easy"> Easy</option>
@@ -87,9 +104,12 @@
 
 
                                 <div class="col-md-10 offset-md-1 input-icons">
+                                    <span class="input-title">Experience</span>
+
                                     <textarea cols="40" rows="15" class="form-control input-field"
-                                        style="margin-left:0px;font-family:Roboto, sans-serif;" name="experience"
-                                        placeholder="Experience"></textarea>
+
+                                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="experience"
+                                        placeholder="Write your Interview experience"></textarea>
                                 </div>
                             </div>
 
@@ -105,17 +125,18 @@
                                 <div class="col-md-10 offset-md-1 input-icons">
                                     <div class="col-6" style="display: inline;">
 
+                                        <span class="input-title">Questions</span>
 
                                         <div class="container">
                                             <div class="row">
 
                                                 <div class="col-10">
 
-                                                    <ul id="questions">
+                                                    <ul id="questions" style="list-style: none;">
                                                         <li>
                                                             <input type="text" class="form-control input-field"
                                                                 style="margin-right:10px;font-family:Roboto, sans-serif;"
-                                                                name="question-1" placeholder="question" />
+                                                                name="question-1" placeholder="Type interview question" />
                                                         </li>
 
 
@@ -183,7 +204,7 @@
                 }
 
                 count += 1;
-                $('#questions').prepend('<li><input type="text" class="form-control input-field" style="margin-right:10px;font-family:Roboto, sans-serif;" name="question-'+count+'" placeholder="question" /></li>')
+                $('#questions').prepend('<li><input type="text" class="form-control input-field" style="margin-right:10px;font-family:Roboto, sans-serif;" name="question-'+count+'" placeholder="Type interview question" /></li>')
 
             })
 

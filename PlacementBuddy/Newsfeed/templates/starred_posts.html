@@ -35,12 +35,12 @@
                             <span class="card-top-text"> {{post.user.name}} </span>
                         </div>
                         <div class="col-4">
-                            <span class="card-top-text-time">{{post.date}} </span>
+                            <span class="card-top-text-time">{{post.time}} </span>
                         </div>
                         <div class="col-1">
 
                             <a href="#" class="star-container" onclick="star_post(this,{{post.id}})">
-                                
+
                                 <span class="fa fa-star {{post.favouritepost_set.all | is_starred:user_name}}"></span>
 
                             </a>
@@ -55,38 +55,47 @@
             <div class="card-body">
                 <div class="container">
                     <div class="container col-lg">
-                        <table align="left" cellpadding="10px" cellspacing="10px" width="100%">
+
+                        <table class="table post_container">
                             <tr>
-                                <td id="title"><b>Job Title : </b> {{ post.job_title}}</td>
-                            </tr>
-                            <tr>
-                                <td id="company"><b>Company : </b> {{ post.company}}</td>
+                                <td class="key">Job Title</td>
+                                <td class="value">{{post.job_title}}</td>
 
                             </tr>
+                            <tr>
+                                <td class="key">Company</td>
+                                <td class="value">{{post.company}}</td>
+                            </tr>
+                            <tr>
+                                <td class="key">Difiiculty</td>
+                                <td class="value">{{post.difficulty}}</td>
+                            </tr>
 
                             <tr>
-                                <td id="difficulty"><b>Difiiculty : </b> {{ post.difficulty}}</td>
+                                <td class="key">Experience</td>
+                                <td class="value">
+                                        {{ post.experience}}
+                                </td>
                             </tr>
+                            <tr>
+                                <td class="key">Questions</td>
+                                <td class="value">
+                                    <ul style="list-style: none;">
+                                        {% for question in post.questions %}
+                                        <li> {{question}} ?</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+
+
                         </table>
+
+
+
+
                     </div>
-                    <div class="container" style="margin-top: 20px">
-                        <h6 id="experience"><b>Experience : </b>
-                            <p>
-                                {{ post.experience}}
-                            </p>
 
-
-
-
-                        </h6>
-
-                        <h6 id="questions"><b>Questions:</b></h6>
-                        <ul>
-                            {% for question in post.questions %}
-                            <li> {{question}} ?</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
                 </div>
 
 
@@ -96,7 +105,7 @@
 
                 <div class="all-comments" id="all-comment-container">
                     {% for comment in post.comment_set.all%}
-                      
+
                     <div class="row card comment-card">
                         <div class="col-5 comment-user">
                             <img class="card-profile-photo" src="{{ comment.user.profile_pic.url }}" alt="">
@@ -113,21 +122,21 @@
 
                 </div>
 
-                <div class="row" style="padding: 5px 0px;">
+                <div class="row" style="padding: 5px 0px;margin-top: 25px;">
                     <div class="col-1">
                         <img src="{{post.user.profile_pic.url}}" style="width: 25px;height: 25px"
                             class="card-profile-photo" />
                     </div>
 
-                        <div class="col-6">
-                            <input type="text" style="width:100%;"
-                                id="comment">
+                    <div class="col-6">
+                        <input type="text" style="width:100%;" id="comment">
 
-                        </div>
-                        <div class="col-5">
-                            <button type="button" class="btn btn-primary btn-sm"
-                                style="width:100%;font-weight: bold; float:center" onclick="send_comment({{post.id}})">Comment</button>
-                        </div>
+                    </div>
+                    <div class="col-5">
+                        <button type="button" class="btn btn-primary btn-sm"
+                            style="width:100%;font-weight: bold; float:center"
+                            onclick="send_comment({{post.id}})">Comment</button>
+                    </div>
 
                 </div>
             </div>
