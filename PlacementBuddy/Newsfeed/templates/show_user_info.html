@@ -1,0 +1,72 @@
+{% extends 'newsfeed_base.html' %}
+{% load static %}
+
+{% block newsfeed %}
+
+<style>
+.user_info_container{
+    border: none;
+    margin-left:23%;
+    margin-top:80px;
+}
+.user_info_container .key{
+    font-weight: 600;
+    column-span: 3;
+}
+.user_info_container .value{
+    padding-left: 60px;
+}
+.table td{
+    border: none;
+    font-size: 18px;
+    
+}
+</style>
+<div class="row" style="position: relative;width: 70%;margin-left:365px;top: 115px;">
+
+    <div class="col" style="padding: 25px 20px;">
+
+
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+
+                <center><h2>User Info</h2></center>    
+
+            </div>
+            <div class="card-body">
+
+                <center>
+                    <img style="width: 250px;height: 200px;  border-radius: 50%;
+  border: 1px solid #1c81cb;" src="{{profile_pic}}" alt="">
+                <table class="table user_info_container">
+                    <tr>
+                       <td class="key">Name</td>
+                       <td class="value">{{User.name}}</td>
+                       <td></td>
+                       <td></td> 
+                    </tr>
+                    <tr>
+                        <td  class="key">Email</td>
+                        <td class="value">{{User.email}}</td> 
+                     </tr>
+                     <tr>
+                        <td  class="key">Phone number</td>
+                        <td class="value">{{User.phone_number}}</td> 
+                     </tr>
+                     
+
+                     
+                </table>
+                </center>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+{% endblock newsfeed %}

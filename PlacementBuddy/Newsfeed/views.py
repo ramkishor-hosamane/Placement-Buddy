@@ -18,13 +18,10 @@ class Newsfeed(View):
         logined_user_obj = User.objects.get(name=logined_user)
         context={"user_name":logined_user}
         if 'comment' in request.GET:
-            print("Inside post")
 
             post_obj = Post.objects.get(id = request.GET.get('post_id'))
-            print("Creating comment object")
             comment = Comment(user = logined_user_obj,post=post_obj,comment = request.GET.get('comment'))
             comment.save()
-            print("Saved comment object")
             return JsonResponse({'profile_pic_url':logined_user_obj.profile_pic.url,'comment_user':logined_user})
         elif 'star' in request.GET:
             logined_user = request.session.get("logined_user")
@@ -34,7 +31,6 @@ class Newsfeed(View):
                 fav_post_obj = FavouritePost.objects.get(user=logined_user_obj,post=post_obj)
             except:
                 fav_post_obj = None
-            print("fav_post_obj over",fav_post_obj)
             if fav_post_obj == None:
                 fav_post_obj = FavouritePost(user=logined_user_obj,post=post_obj)
                 fav_post_obj.save()
@@ -45,15 +41,39 @@ class Newsfeed(View):
         else:    
             logined_user = request.session.get("logined_user")
             if not logined_user:
-                print("Not logined")
                 return redirect('signin')
             posts = reversed(Post.objects.all())
             context["posts"]=posts
 
             css_class_active = {'all_posts':'option-active'}
-
+            context['logined_user_obj'] = logined_user_obj
             context["css_class_active"]=css_class_active  
             return render(request, 'newsfeed.html',context=context)
+def show_user_info(request,user):
+    user_obj =  User.objects.all().filter(name=user)[0]
+    logined_user = request.session.get("logined_user")
+    context={"user_name":logined_user}
+    context["profile_pic"]=user_obj.profile_pic.url
+    context["User"] = user_obj
+    return render(request, 'show_user_info.html',context=context)
+
+def edit_user_info(request):
+    logined_user = request.session.get("logined_user")
+    logined_user_obj = User.objects.get(name=logined_user)
+    context={"user_name":logined_user}
+    if request.method=="POST":
+        logined_user_obj.name = request.POST.get("name")
+        logined_user_obj.email = request.POST.get("email")
+        logined_user_obj.phone_number = request.POST.get("phone_number")
+        logined_user_obj.password = request.POST.get("password")
+        logined_user_obj.save()
+        request.session['logined_user'] = logined_user_obj.name
+        return redirect("newsfeed")
+    else:
+        context["User"] = logined_user_obj
+        context["profile_pic"]=logined_user_obj.profile_pic.url
+
+        return render(request, 'edit_user_info.html',context=context)
 
 
 def fav_posts(request):
@@ -62,7 +82,6 @@ def fav_posts(request):
     fav_posts = FavouritePost.objects.filter(user = logined_user_obj)
     fav_posts = [fav_post.post for fav_post in fav_posts]    
     context={"user_name":logined_user,'fav_posts':fav_posts}
-    print(fav_posts)
     css_class_active = {'fav_posts':'option-active'}
 
     context["css_class_active"]=css_class_active  
@@ -75,7 +94,6 @@ def all_questions(request):
         context['questions'] = q
         context['subject'] = "Questions"
 
-        print(request.GET)
     css_class_active = {'questions':'option-active'}
     context["css_class_active"]=css_class_active 
     return render(request, 'all_questions.html',context=context)
@@ -87,7 +105,6 @@ def algorithm_questions(request):
         context['questions'] = q
         context['subject'] = "DS and Algorithms"
         
-        print(request.GET)
     css_class_active = {'questions':'option-active'}
     context["css_class_active"]=css_class_active 
  
@@ -100,7 +117,6 @@ def programming_questions(request):
     if request.method=="GET":
         context['questions'] = q
         context['subject'] = "Programming"
-        print(request.GET)
     css_class_active = {'questions':'option-active'}
     context["css_class_active"]=css_class_active 
  
@@ -114,7 +130,6 @@ def dbms_questions(request):
     if request.method=="GET":
         context['questions'] = q
         context['subject'] = "DBMS"
-        print(request.GET)
     css_class_active = {'questions':'option-active'}
     context["css_class_active"]=css_class_active 
  
@@ -129,7 +144,6 @@ def cn_questions(request):
     if request.method=="GET":
         context['questions'] = q
         context['subject'] = "Computer Networks"
-        print(request.GET)
     css_class_active = {'questions':'option-active'}
     context["css_class_active"]=css_class_active 
  
@@ -144,7 +158,6 @@ def sw_questions(request):
     if request.method=="GET":
         context['questions'] = q
         context['subject'] = "Software Engineering"
-        print(request.GET)
     css_class_active = {'questions':'option-active'}
     context["css_class_active"]=css_class_active 
  
@@ -156,11 +169,10 @@ class PostReview(View):
     def get(self,request):
         logined_user = request.session.get("logined_user")
         if not logined_user:
-            print("Not logined")
             return redirect('signin')
         context={"user_name":logined_user}
         css_class_active = {'post_review':'option-active'}
-        
+        context["user_name"] = logined_user
         context["css_class_active"]=css_class_active        
         return render(request, 'post_review.html',context=context)    
     def post(self,request):
@@ -200,7 +212,6 @@ class PostReview(View):
             for question in final_res[topic]:
                 q = Question(post=post,question=question,subject=topic)
                 q.save()
-        print(request.POST)
 
 
         return redirect('newsfeed')    

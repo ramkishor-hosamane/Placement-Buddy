@@ -17,10 +17,15 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from Newsfeed.views import show_user_info
+from Newsfeed.views import edit_user_info
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('newsfeed', include('Newsfeed.urls')),
+    path('profiles/<str:user>',show_user_info,name="profiles"),
+    path('edit_profile',edit_user_info,name="edit_profile"),
+
     path('', include('Home.urls')),
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

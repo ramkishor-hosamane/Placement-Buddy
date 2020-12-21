@@ -1,0 +1,104 @@
+{% extends 'newsfeed_base.html' %}
+{% load static %}
+
+{% block newsfeed %}
+<link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
+
+<style>
+    .user_info_container {
+        border: none;
+        margin-left: 21%;
+        margin-top: 80px;
+    }
+
+    .user_info_container .key {
+        font-weight: 600;
+        column-span: 3;
+    }
+
+    .user_info_container .value {
+        padding-left: 60px;
+    }
+
+    .table td {
+        border: none;
+        font-size: 18px;
+    }
+    .p-image{
+        top: -39px;
+left: 86px;
+    }
+
+    .upload-button {
+    font-size: 2.2em;
+    }
+
+</style>
+<div class="row" style="position: relative;width: 70%;margin-left:365px;top: 115px;">
+
+    <div class="col" style="padding: 25px 20px;">
+
+
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+
+                <center>
+                    <h2>Account Settings</h2>
+                </center>
+
+            </div>
+            <div class="card-body">
+                <form action="{% url 'edit_profile' %}" method="POST">
+                    {% csrf_token %}
+
+                    <center>
+
+                        <img style="width: 250px;height: 200px;  border-radius: 50%;
+  border: 1px solid #1c81cb;" src="{{profile_pic}}" alt="">
+                        <div class="p-image">
+                            <i class="fa fa-camera upload-button"></i>
+                            <input class="file-upload" name="profile_pic" type="file" accept="image/*"/>
+                        </div>
+                        <table class="table user_info_container">
+                            <tr>
+                                <td class="key">Name</td>
+                                <td class="value"><input type="text" name="name" value="{{User.name}}"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="key">Email</td>
+                                <td class="value"><input type="email" name="email" value="{{User.email}}"></td>
+                            </tr>
+                            <tr>
+                                <td class="key">Password</td>
+                                <td class="value"><input type="password" name="password" value="{{User.password}}"></td>
+                            </tr>
+                            <tr>
+                                <td class="key">Phone number</td>
+                                <td class="value"><input type="text" name="phone_number" value="{{User.phone_number}}">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+
+
+                            </tr>
+
+                        </table>
+                        <button type="submit" class="btn btn-info" style="width: 30%;">Save</button>
+                    </center>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+{% endblock newsfeed %}
